@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<style>
+body {
+text-align: center;
+}
+h1 {
+  text-align: center;
+  text-shadow: 1px 0.5px blue;
+}
+a {
+   text-decoration: none;
+}
   <title>Home</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,11 +34,12 @@
   };
   firebase.initializeApp(config);
 </script>
+</style>
 </head>
 <body>
 
 <div class="container">
-  <p><b>Home page</b></p>
+<h1>Home page</h1>
 <br>
 <?php
 session_start();
