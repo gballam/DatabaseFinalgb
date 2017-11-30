@@ -27,7 +27,7 @@
 <body>
 
 <div class="container">
-<p>Home page</p>
+  <p><b>Home page</b></p>
 <br>
 <?php
 session_start();
@@ -36,7 +36,7 @@ if (isset($_SESSION["loggedIn"]) != TRUE) {
     $_SESSION["loggedIn"] = FALSE;
 }
 if ($_SESSION["loggedIn"] == FALSE) {
-echo '<a href="loginReg.php">login here!</a>';
+echo '<a href="loginReg.php">Login Here!</a>';
 }
 if ($_SESSION["loggedIn"] == TRUE) {
     echo "logged in as " . $_SESSION["user"];
