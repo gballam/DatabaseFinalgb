@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<style>
-body {
-text-align: center;
-}
-h1 {
-  text-align: center;
-  text-shadow: 1px 0.5px blue;
-}
-a {
-   text-decoration: none;
-}
   <title>Home</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,12 +23,11 @@ a {
   };
   firebase.initializeApp(config);
 </script>
-</style>
 </head>
 <body>
 
 <div class="container">
-<h1>Home page</h1>
+<p>Home page</p>
 <br>
 <?php
 session_start();
@@ -48,10 +36,11 @@ if (isset($_SESSION["loggedIn"]) != TRUE) {
     $_SESSION["loggedIn"] = FALSE;
 }
 if ($_SESSION["loggedIn"] == FALSE) {
-echo '<a href="loginReg.php">Login Here!</a>';
+echo '<a href="loginReg.php">login here!</a>';
 }
 if ($_SESSION["loggedIn"] == TRUE) {
     echo "logged in as " . $_SESSION["user"];
+    echo '<a href="forumMain.php">Continue to site</a>';
 }
 session_write_close();
 ?>
