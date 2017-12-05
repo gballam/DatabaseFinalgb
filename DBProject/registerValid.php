@@ -31,7 +31,7 @@ $query = $conn->prepare("SELECT password from users_table where username=?");
    }
    else
    {
-       $sql = "INSERT INTO users_table (username, password, ticketNums)
+       $sql = "INSERT INTO users_table (username, password, isMod)
        VALUES ('".$_SESSION["user"]."', '".$_SESSION["pwd"]."', '0')";
        if ($conn->query($sql) === TRUE) {
              $_SESSION["loggedIn"] = TRUE;

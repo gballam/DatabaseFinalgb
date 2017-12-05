@@ -40,6 +40,7 @@ echo '<a href="loginReg.php">login here!</a>';
 }
 if ($_SESSION["loggedIn"] == TRUE) {
     echo "logged in as " . $_SESSION["user"];
+    echo '<a href="forumMain.php">Continue to site</a>';
 }
 session_write_close();
 ?>
