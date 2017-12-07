@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 echo "Connected successfully \n";
 $username = $_SESSION["user"];
 $password = $_SESSION["pwd"];
-$query = $conn->prepare("SELECT password from users_table where username=?");
+$query = $conn->prepare("SELECT password_hashed from users_table where username=?");
   $query->bind_param("s", $username);
    $query->execute();
    $query->store_result();
@@ -23,6 +23,7 @@ $query = $conn->prepare("SELECT password from users_table where username=?");
   $num_of_rows = $query->num_rows;
    if($num_of_rows ==1)
    {
+      $_SESSION["message"] = "Username is already taken!";
       $_SESSION["loggedIn"] = FALSE;
       session_write_close();
       echo '<script>alert("username is already taken");</script>';
@@ -31,7 +32,7 @@ $query = $conn->prepare("SELECT password from users_table where username=?");
    }
    else
    {
-       $sql = "INSERT INTO users_table (username, password, isMod)
+       $sql = "INSERT INTO users_table (username, password_hashed, isMod)
        VALUES ('".$_SESSION["user"]."', '".$_SESSION["pwd"]."', '0')";
        if ($conn->query($sql) === TRUE) {
              $_SESSION["loggedIn"] = TRUE;
