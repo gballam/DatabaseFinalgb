@@ -2,6 +2,10 @@
 <body>
 <?php
 session_start();
+if ($_POST["logout"] == "logout") {
+  $_SESSION["loggedIn"] = FALSE;
+  echo '<a href="loginReg.php">login here!</a>';
+}
 if ($_POST["login"] == "login") {
 //login
 $_SESSION["user"] = $_POST["user"];
