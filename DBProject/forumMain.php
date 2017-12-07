@@ -7,8 +7,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style> div.userLog {
     position: relative;
-    left: 500px;
-    top: -80px;
+    left: 1000px;
+    top: 0px;
     border: 3px solid blue;
     height:50px;
     width:400px;
@@ -16,12 +16,28 @@
   </style>
 </head>
 <body>
-  <div class="userLog"><p style="white-space:nowrap;">Logged in as
-  <?php if (isset($_SESSION["user"])) { //Will later need to change the <p> tag to be a link where they can edit their password perhaps
-    echo $_SESSION["user"]; //Work in progress, will put out the username if the session is started
-  }?>
-  </p></div>
-
+  <div class="userLog">
+  <?php
+    session_start();
+    if (!isset($_SESSION["wroteQuestion"])) {
+      $_SESSION["wroteQuestion"] = "notYet";
+    }
+    if ($_SESSION["wroteQuestion"] == "no") {
+      echo '<script>alert("failed to write new question");</script>';
+      $_SESSION["wroteQuestion"] = "notYet";
+    }
+     echo '<p style="white-space:nowrap;">Logged in as ' . $_SESSION["user"] . '</p>';//Will later need to change the <p> tag to be a link where they can edit their password perhaps
+   session_write_close();//Work in progress, will put out the username if the session is started
+  ?>
+  </div>
+<form style="float:right;padding:10px" action="viewQuestion.php" method="post">
+  <p>Input the question id of the question you want to view</p>
+  <input type="text" name="qID">
+  <br>
+  <input type="submit" value="submit">
+</form>
+<a href="loginReg.php">Logout</a>
+<a href="writeQuestion.php">Click here to write a question</a>
   <?php
   session_start();
   $servername = "sql303.epizy.com";
@@ -51,15 +67,15 @@
   } else {
     $questions = new question();
     $query = $conn->prepare("SELECT question_id, question_username, question_title from question_table");
-  for ($i = 0; $i <= $count; $i++) { //Load in questions object and make question html
-
     $query->execute();
     $query->store_result();
     $query->bind_result($questions->id, $questions->usrName, $questions->title);
+  for ($i = 0; $i < $count; $i++) { //Load in questions object and make question html
     $query->fetch();
     echo '<div style="position: relative; height:100px; width:800px; top: ' . ($i * 100) . 'px;border: 3px solid blue; ">';
-    echo '<p style="white-space:nowrap;">Username: ' . $questions->usrName . '</p>';
+    echo '<p style="white-space:nowrap;">Question ID: ' . $questions->id . '    Username: ' . $questions->usrName . '</p>';
     echo '<p style="white-space:nowrap;">Title: ' . $questions->title . '</p></div>';
+
 
   }
   //may need $conn->close here
