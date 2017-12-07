@@ -1,4 +1,20 @@
 <!DOCTYPE html>
+<?php
+  session_start();
+  $password_test = "test";
+  $password_test2 = "passTest";
+  $test_hashed = password_hash($password_test, PASSWORD_DEFAULT);
+  $test2_hashed = password_hash($password_test2, PASSWORD_DEFAULT);
+  echo("test hashed is ".$test_hashed."<br />");
+  echo("passTest hashed is ".$test2_hashed."<br />");
+  $_SESSION["user"] = "";
+  $_SESSION["pwd"] = "";
+  if($_SESSION["message"] != "") {
+    echo("<br /><h2>".$_SESSION["message"]."</h2><br />");
+    $_SESSION["message"] = "";
+  }
+  session_write_close();
+?>
 <html lang="en">
 <head>
   <title>Login or sign up</title>
