@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<style>
   <title>Home</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,29 +23,23 @@
     messagingSenderId: "265459794514"
   };
   firebase.initializeApp(config);
+  
 </script>
+</style>
 </head>
-<body>
-
+<body bgcolor="#959CCE">
 <div class="container">
-<p>Home page</p>
+<h1>Home page</h1>
 <br>
-<?php
-session_start();
-//unset($_SESSION["loggedIn"]);
-if (isset($_SESSION["loggedIn"]) != TRUE) {
-    $_SESSION["loggedIn"] = FALSE;
-}
-if ($_SESSION["loggedIn"] == FALSE) {
-echo '<a href="loginReg.php">login here!</a>';
+Login here!</a>';
 }
 if ($_SESSION["loggedIn"] == TRUE) {
-    echo "logged in as " . $_SESSION["user"];
-    echo '<a href="forumMain.php">Continue to site</a>';
+echo "logged in as " . $_SESSION["user"];
+echo $_SESSION["message"];
+echo '<a href="forumMain.php"><br />Continue to site</a>';
 }
 session_write_close();
 ?>
 </div>
-
 </body>
 </html>
