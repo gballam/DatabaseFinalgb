@@ -21,7 +21,7 @@ Users table:
  
  response_id(int(11)) (autoincrement) | question_id (int(11)) | responding_user (varchar(35)) | response_date (datetime) | response_body (text)
  
- 
+ Video URL: https://youtu.be/21sDoT4LWVY
  
  
  
