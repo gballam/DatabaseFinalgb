@@ -23,7 +23,6 @@ Users table:
  
  Video URL: https://youtu.be/21sDoT4LWVY
  
- 
- 
+ Entity Relationship Diagram (ERD): https://www.instagram.com/p/BcdFOy5jyp8OwoRuQjA7HP1YY1eQlRVVHWL6d80/?taken-by=gballam
 
 
