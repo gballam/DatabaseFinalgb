@@ -1,7 +1,7 @@
 <html>
 <body>
-<?php
-session_start();
+login here!</a>';
+}
 if ($_POST["login"] == "login") {
 //login
 $_SESSION["user"] = $_POST["user"];
