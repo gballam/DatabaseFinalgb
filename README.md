@@ -8,8 +8,8 @@ This application is a small, universal forum-type template application. Right no
 
 Database Schema: 
 Users table:
-| username    | Password    | isMod  |
-|-------------|:-----------:|-------:|
-| text        | text        |tinyInt |
+ username    | Password    | isMod  
+
+ text        | text        |tinyInt 
 
 
