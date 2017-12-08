@@ -10,8 +10,20 @@ Database Schema:
 
 Users table:
 
- username    | Password    | isMod  
-
- text        | text        |tinyInt 
+ username (text)    | Password (text)   | isMod  (tinyInt)
+ 
+ 
+ questions_table: 
+ 
+ question_id(int(11)) (autoincrement) | question_username (varchar(35)) | question_title (varchar(255)) | question_body (text) | question_score (int(11)) | question_date (datetime) 
+ 
+ response_table:
+ 
+ response_id(int(11)) (autoincrement) | question_id (int(11)) | responding_user (varchar(35)) | response_date (datetime) | response_body (text)
+ 
+ 
+ 
+ 
+ 
 
 
